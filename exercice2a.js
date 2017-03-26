@@ -9,10 +9,10 @@ var load = function(url) {
 
             var tab = "<table> \
                            <tr> \
-                               <td> Expéditeur </td> \
-                               <td> Destinataire </td> \
-                               <td> Date </td> \
-                               <td> Sujet </td> \
+                               <th> Expéditeur </td> \
+                               <th> Destinataire </td> \
+                               <th> Date </td> \
+                               <th> Sujet </td> \
                            </tr>";
 
             for (var i=0; i<answer.mails.length; i++) {
