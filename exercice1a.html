@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title> Exercice 1a </title>
+    </head>
+    <body>
+        <nav id="nav">
+            <ul>
+                <li> <a href="#Inbox"> Inbox </a></li>
+                <li> <a href="#Sent"> Sent </a> </li>
+                <li> <a href="#Spam"> Spam </a> </li>
+                <li> <a href="#Archive"> Archive </a> </li>
+            </ul>
+        </nav>
+    </body>
+</html>
+<script>
+    function navMesg() {
+        var s = location.hash;
+        if (s !== "") {
+            var nav = document.getElementById("nav");
+            var old_msg = document.getElementById("msg");
+            if (old_msg) {
+                nav.removeChild(old_msg);
+            }
+
+            var msg = document.createElement("p");
+            msg.id="msg"
+            var s = location.hash
+            if (s!= "") {
+                msg.innerHTML = "Currently in : " + s;
+            }
+
+            nav.appendChild(msg);
+        }
+    }
+
+    this.onload = navMesg;
+    this.onhashchange = navMesg;
+</script>

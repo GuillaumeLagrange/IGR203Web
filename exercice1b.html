@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sammy.js/0.7.6/sammy.min.js"></script>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title> Exercice 1b </title>
+    </head>
+    <body>
+        <nav id="nav">
+            <ul>
+                <li> <a href="#Inbox"> Inbox </a></li>
+                <li> <a href="#Sent"> Sent </a> </li>
+                <li> <a href="#Spam"> Spam </a> </li>
+                <li> <a href="#Archive"> Archive </a> </li>
+            </ul>
+        </nav>
+        <p id="msg"/>
+    </body>
+    <script>
+        Sammy("#msg",function() {
+
+            this.get("#Inbox", function() {
+                this.$element().html("Currently in Inbox");
+            });
+
+            this.get("#Sent", function() {
+                this.$element().html("Currently in Sent");
+            });
+
+            this.get("#Spam", function() {
+                this.$element().html("Currently in Spam");
+            });
+
+            this.get("#Archive", function() {
+                this.$element().html("Currently in Archive");
+            });
+
+        }).run();
+    </script>
+</html>
