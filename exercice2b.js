@@ -7,24 +7,10 @@ var load = function(url) {
         if (xhr.status == 200) {
             answer = JSON.parse(xhr.responseText);
 
-            var tab = "<table> \
-                           <tr> \
-                               <th> Expéditeur </th> \
-                               <th> Destinataire </th> \
-                               <th> Date </th> \
-                               <th> Sujet </th> \
-                           </tr>";
-
-            for (var i=0; i<answer.mails.length; i++) {
-                var mail = answer.mails[i];
-                tab += "<tr> <td>" + mail['from']  + "</td>"
-                tab += "<td>" + mail['to']  + "</td>"
-                tab += "<td>" + mail['date']  + "</td>"
-                tab += "<td>" + mail['subject']  + "</td> </tr>"
-            };
-
-            tab += "</table>";
-            $("#tab").html(tab);
+            $.get("exercice2b.template", function(template) {
+                var tab = Mustache.render(template, answer);
+                $('#tab').html(tab);
+            });
         }
     };
 
