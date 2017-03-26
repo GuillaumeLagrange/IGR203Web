@@ -1,5 +1,3 @@
-var urlMail = "http://perso.telecom-paristech.fr/~concolat/cours/TP/igr203/mails-inbox.json";
-
 var load = function(url) {
     var xhr = new XMLHttpRequest();
 
@@ -18,26 +16,31 @@ var load = function(url) {
     xhr.send();
 }
 
+var urlInbox = "http://perso.telecom-paristech.fr/~concolat/cours/TP/igr203/mails-inbox.json";
+var urlArchive = "http://perso.telecom-paristech.fr/~concolat/cours/TP/igr203/mails-archives.json"
+var urlSpam = "http://perso.telecom-paristech.fr/~concolat/cours/TP/igr203/mails-spam.json"
+var urlSent = "http://perso.telecom-paristech.fr/~concolat/cours/TP/igr203/mails-sent.json"
+
 Sammy("#msg",function() {
 
     this.get("#Inbox", function() {
         this.$element().html("Currently in Inbox");
-        load(urlMail);
+        load(urlInbox);
     });
 
     this.get("#Sent", function() {
         this.$element().html("Currently in Sent");
-        load(urlMail);
+        load(urlSent);
     });
 
     this.get("#Spam", function() {
         this.$element().html("Currently in Spam");
-        load(urlMail);
+        load(urlSpam);
     });
 
     this.get("#Archive", function() {
         this.$element().html("Currently in Archive");
-        load(urlMail);
+        load(urlArchive);
     });
 
 }).run();
